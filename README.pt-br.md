@@ -17,8 +17,6 @@ Seja bem vindo(a) ao meu projeto fullstack de **Cadastro de usuários**.
 
 A proposta do projeto é fornecer um sistema completo, desde o backend, construído com Java e Spring Boot, até o frontend, desenvolvido em React com Vite, que permita o cadastro de usuários.
 
-O sistema irá cadastrar usuários em memória utilizando o banco de dados H2 e exibí-los na tela em tempo real, além de também permitir a deleção desses usuários.
-
 ## Funcionalidades
 
 - Visualização de usuários cadastrados.
