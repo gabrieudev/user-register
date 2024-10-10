@@ -22,7 +22,7 @@ form {
   width: 400px;
   margin-bottom: 20px;
 
-  & input[type="submit"] {
+  & button {
     border-radius: 30px;
     background-color: #8a9ae1;
     height: 40px;
@@ -32,13 +32,11 @@ form {
     font-size: 14px;
   }
 
-  & input[type="submit"]:hover {
+  & button:hover {
     opacity: 0.8;
   }
 
-  & input[type="password"],
-  input[type="email"],
-  input[type="text"] {
+  & input {
     border: 1px solid #45516c;
     border-radius: 30px;
     height: 40px;

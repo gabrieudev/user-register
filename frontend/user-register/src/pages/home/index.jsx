@@ -20,14 +20,17 @@ function Home() {
     setUsers(usersFromApi.data);
   }
 
-  async function createUser() {
+  async function createUser(event) {
+    event.preventDefault();
     try {
       await api.post("/users", {
         username: inputUsername.current.value,
         email: inputEmail.current.value,
         password: inputPassword.current.value,
       });
-
+      inputUsername.current.value = "";
+      inputEmail.current.value = "";
+      inputPassword.current.value = "";
       getUsers();
     } catch (error) {
       setError(error.response?.data?.detail || "Unknown error");
@@ -52,30 +55,22 @@ function Home() {
 
   return (
     <div className="container">
-      <form>
+      <form onSubmit={createUser}>
         <h1>User register</h1>
         <input
-          required
           placeholder="Username"
           name="username"
           type="text"
           ref={inputUsername}
         />
+        <input placeholder="Email" name="email" type="email" ref={inputEmail} />
         <input
-          required
-          placeholder="Email"
-          name="email"
-          type="email"
-          ref={inputEmail}
-        />
-        <input
-          required
           placeholder="Password"
           name="password"
           type="password"
           ref={inputPassword}
         />
-        <input onClick={createUser} type="submit" value="Register" />
+        <button type="submit">Register</button>
       </form>
       {users.map((user) => (
         <div key={user.id} className="card">
