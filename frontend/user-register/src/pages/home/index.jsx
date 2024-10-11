@@ -1,9 +1,8 @@
 import "./style.css";
 import Trash from "../../assets/trash.png";
-import Error from "../../assets/error.png";
-import Close from "../../assets/close.png";
 import { useEffect, useState, useRef } from "react";
 import api from "../../services/api";
+import ErrorSidebar from "../../components/errorSidebar/ErrorSidebar";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -44,9 +43,9 @@ function Home() {
     getUsers();
   }
 
-  const closeSidebar = () => {
-    setShowSidebar(false);
+  const clearError = () => {
     setError(null);
+    setShowSidebar(false);
   };
 
   useEffect(() => {
@@ -55,6 +54,11 @@ function Home() {
 
   return (
     <div className="container">
+      <ErrorSidebar
+        errorMessage={error}
+        showSidebar={showSidebar}
+        onClearError={clearError}
+      />
       <form onSubmit={createUser}>
         <h1>User register</h1>
         <input
@@ -90,17 +94,6 @@ function Home() {
           </button>
         </div>
       ))}
-      {showSidebar && (
-        <div className="error__sidebar">
-          <div className="error__content">
-            <img src={Error} />
-            <p>{error}</p>
-            <button type="button" onClick={closeSidebar}>
-              <img src={Close} />
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
