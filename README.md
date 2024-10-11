@@ -22,8 +22,6 @@ Please select your preferred language:
 
 The goal of this project is to provide a complete system, from the backend, built with Java and Spring Boot, to the frontend, developed in React with Vite, that allows for user registration.
 
-The system will register users in memory using the H2 database and display them on screen in real time, also allowing the deletion of these users.
-
 ## Features
 
 - View registered users.
